@@ -1,0 +1,48 @@
+
+parking lot with N slots 1..N
+
+Entry:
+
+1. Car enters the PL
+2. Get the registration number and color
+3. Assign a slot nearest to the entry.
+4. Give the ticket
+
+Exit:
+
+1. Customer returns the ticket.
+2. Slot becomes available.
+3. Car exits the PL
+
+Common queries:
+
+- get registration number of all cars with particular color
+- get slot for a car with given registraton number
+- get all slots for cars with given color
+
+Entities:
+
+Parking Lot
+Slot
+Car
+
+1 PL
+
+N slots within a PL [0, 1, 2, .. N]
+  - available - yes/no
+  - car 
+0..N Car 
+  - Registration no
+  - Color
+
+Actions:
+
+1. Car enters PL - makes a request to parking lot system
+2. Check for available slot
+  2.1 Available :
+    - Check if a car with same regno already exist - raise error if so
+    - Create a car instance with details
+    - Assign a slot and return the slot number
+
+  2.2 Not available :
+    - Do nothing/ raise not available
