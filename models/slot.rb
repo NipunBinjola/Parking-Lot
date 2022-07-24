@@ -18,5 +18,16 @@ module Models
     def occupied?
       status == 'occupied'
     end
+
+    def assign_vehicle(vehicle)
+      @vehicle = vehicle
+      @status = 'occupied'
+      self
+    end
+
+    def remove_vehicle
+      @vehicle = nil
+      @status = 'free'
+    end
   end
 end
