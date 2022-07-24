@@ -3,6 +3,8 @@
 module Models
   class ParkingLot
     def initialize(number_of_slots)
+      raise Errors::ParkingLot::InvalidNumberOfSlots unless number_of_slots.class == Integer && number_of_slots.positive?
+
       @slots = []
       (1..number_of_slots).each do |slot_id|
         @slots << Slot.new(id: slot_id)
